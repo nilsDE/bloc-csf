@@ -1,0 +1,28 @@
+1.
+//a)
+let lineOfPeople = ["Vivian", "Ava", "Josh", "Patrick", "Mike"];
+
+//b)
+lineOfPeople.push("Mary");
+
+//c)
+let positionOfJosh = lineOfPeople.findIndex(person => person === "Josh");
+
+//d)
+let positionOfEmily = lineOfPeople.findIndex(person => person === "Emily");
+//When a person is not found it returns -1.
+
+//e)
+let positionOfAva = lineOfPeople.findIndex(person => person === "Ava");
+lineOfPeople.splice(positionOfAva, 0, "Melissa");
+
+//f)
+let positionOfPatrick = lineOfPeople.findIndex(person => person === "Patrick");
+lineOfPeople.splice(positionOfPatrick,1);
+
+
+2.
+We could store each days temperature in an array. However, the array should hold objects for each day so that we can give each day the date and the actual temperature.
+
+3. 
+Developers can use all existing array methods to access and manipulate the data.
