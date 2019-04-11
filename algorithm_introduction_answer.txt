@@ -1,0 +1,37 @@
+1.
+
+making coffee
+1. Grab stovetop espresso coffee maker;
+2. disassemble it;
+3. fill lower part with water;
+4. fill upper part with coffee;
+5. assemble it;
+6. put on stove and heat up;
+7. pour coffee into mug;
+
+washing dishes
+1. fill sink with water;
+2. mix soup into water;
+3. grab sponge;
+4. one after the other, wash dish in water with sponge;
+5. position dish on drying rack;
+
+brush teeth
+1. grab toothbrush;
+2. grab tooth paste and apply to brush;
+3. use brush to clean upper teeth;
+4. use brush to clean lower teeth;
+5. clean brush under water;
+6. clean mouth with water;
+
+2. 
+a. DHL Express - I would argue that they are one of the very successful express delivery companies because they have their algorithms to figure out how to deliver millions of shipments in the fastest way. Their sorting machines must have algorithms to sort the deliveries. 
+
+b. 
+McDonalds - if you look at their burgers, how they make them is also an algorithm. A BigMac is always a BigMac because they always follow exact steps in how to assemble it. So wherever you go it is always the same experience. With their franchise system they were one of the first to deliver standardized burger products and they became successful. 
+
+c.
+Microsoft - they built Windows - which is full of algorithms. Their product made computers much more accessible. Thats why they became sucessful.
+
+3.
+I think an efficient algorithm has as many steps as it needs but at least as possible. It uses efficient methods for iterating, sorting, etc. Some sorting methods are less efficient. They need more computer power and also more time. An efficient algorithm doesn't do any unncesseary steps. 
