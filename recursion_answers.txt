@@ -1,0 +1,66 @@
+
+
+1.
+Recursion is a procedure that calls itself until it has completed a certain task. It does something similar than iteration but in a different way. Both are about repitition. But where recursion repeatedly calls itself, iteration repeatedly executes certain instructions.
+Most problems can be implemented in both ways. However, the recursive solution tends to be less efficient. The iterative solution might be more diffcult to implement. 
+
+2.
+a. Calculating the factorial of a natural number
+b. Binary search
+c. Fibonacci Sequence
+d. Find greatest common divisor
+e. Recursion is used a lot in fractals. An example is Sierpinskis triangle.
+
+3.
+As said earlier, most problems can be solved in both ways. Whenever efficiency is critical, one should prefer iterations. Recursion tends to be less efficient. However, sometimes implementing recursion is more straightforward when the problem itself is of a recursive manner. This is the case for example for so called self-similar shapes. 
+
+4.
+I don't understand the question. Should I individually compare the two solutions for each algorithm? So for each algorithm I describe what is similar and different between the recusive and iterative solution? 
+
+5.
+This functions returns the number of items in the array. In my result, it returns 5.
+
+
+function countItems(inputArray) {
+  if(inputArray.length === 1) {
+    return 1;
+  } else {
+    inputArray.splice(0, 1);
+    // console.log(newArray);
+    let result = countItems(inputArray);
+    return result + 1;
+  }
+}
+
+countItems(['a', 2, true, 'hello', 3]);
+
+
+
+
+6.
+This function either returns true or false. In my example, passing 'tacocat' into the function, it returns true.
+
+
+function isWordPalidrome(word) {
+  if (word.length === 0 || word.length === 1) {
+    return true;
+  } else {
+    let firstCharacter = word[0];
+    let lastCharacter = word[word.length - 1];
+    let newWord = word.substring(1, word.length - 1);
+    let result = isWordPalidrome(newWord);
+
+    if (result === true && firstCharacter === lastCharacter) {
+      return true;
+    } else {
+      return false;
+      
+    }
+  }
+}
+
+isWordPalidrome('tacocat');
+
+
+7.
+After searching the word "recursion", if you click on "did you mean recursion?", it will search again the word "recursion". So even though the search for recursion is not itself calling the search for recursion again, with our help of clicking it, it behaves like a recursive function that calls itself over and over again.
