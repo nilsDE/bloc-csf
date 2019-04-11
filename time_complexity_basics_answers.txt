@@ -1,0 +1,50 @@
+1. What is time complexity and what is its relation to algorithms?
+
+Time complexity helps to measure the efficiency of a funtion or algorithm. Particularly, it helps to understand how the time need to run a program increases when increasing the amount of input. A program might be fast with only a few inputs, but maybe it runs slow with a lot of input. Time complexity helps to understand that. 
+
+
+2. What is runtime?
+
+Runtime is used in two different ways. Either just as a synonym for time complexity or as an expression for the physical time duration of an algorithm.
+
+
+3. How is the runtime of an algorithm calculated?
+
+To do that, we need to evaluate how may instructions an algorithm executes and how they relate to the input. We add up the instructions and then we simplify the result. We figure out the largest term and drop any constants.
+
+
+4. Name the six types of algorithm growth rates we saw in this checkpoint and list them in order of most efficient to least efficient. Now Google another algorithmic growth rate not covered and place it in the correct spot in your list.
+
+O(1)
+O(log n)
+O(n)
+O(n log n)
+O(n^2)
+O(2^n)
+
+Another growth rate is O(n^3). It is between O(n^2) and O(2^n).
+
+
+5. Choose one of the algorithmic growth rates from the last question and make a comparison to a real-life situation.
+
+Let's say a guy is making HotDogs. If 20 people wants a hotdog, he will make 20. If it's 10 people, he will make 10. The number of hotdogs and the time it takes to make them is proportional to the number of people (as long as each person only gets one hotdog).
+
+6.
+This is a linear growth rate. Everything happens n-times. The for-loop iterate over n items, the if statement checks n times and we have n return statements. So after simplification, we still only have n. Hence: O(n)
+
+7. 
+The nested for-loop is an indicator for a quadratic growth rate. If the array has 3 numbers in it, for each of the three we iterate over all three again. So we say hello nine times. This is 3 squared. Hence: O(n^2)
+
+8. 
+The time complexity of this one depends on the else statement. The function calls itself twice. And then each calls twice again. And so on. That makes an exponential growth rate. Exponential growth rates are seen a lot in recursion - and that is what we have here. 
+
+
+9. The first one was most efficient. It was a linear groth. 
+
+
+
+
+
+
+
+
