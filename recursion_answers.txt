@@ -22,12 +22,13 @@ This functions returns the number of items in the array. In my result, it return
 
 
 function countItems(inputArray) {
-  if(inputArray.length === 1) {
+  let flattenedArray = inputArray.flat();
+  if(flattenedArray.length === 1) {
     return 1;
   } else {
-    inputArray.splice(0, 1);
+    flattenedArray.splice(0, 1);
     // console.log(newArray);
-    let result = countItems(inputArray);
+    let result = countItems(flattenedArray);
     return result + 1;
   }
 }
