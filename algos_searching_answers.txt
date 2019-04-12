@@ -1,0 +1,104 @@
+1.
+When you search a recipe from an unordered list of recipes you use linear search.
+
+2.
+Let's say there is a list with exam results with names in albhabetical order. Here you can use binary search.
+
+3.
+Seven.
+
+4.
+Three.
+
+5.
+Linear search. Binary search only works with sorted collections.
+
+6.
+Binary search, because it is more efficient than linear search.
+
+
+
+
+
+
+Programming 1:
+
+let dictionary =
+[
+'albacore',
+'albamycin',
+'alban',
+'alban',
+'albanese',
+'albania',
+'albanian',
+'albano',
+'albany',
+'albany',
+'albarello',
+'albarium',
+'albata',
+'albategnius',
+'albatross',
+'albay',
+'albedo',
+'albedometer',
+'albee',
+'albee',
+'albeit',
+'albemarle',
+'albeniz',
+'albergo',
+'alberich',
+'alberoni'
+];
+
+function findWord(dictionary, word) {
+  let start = 0;
+  let end = dictionary.length-1;
+
+  while(start <= end) {
+    let mid = Math.floor((start + end) / 2);
+    if(dictionary[mid] > word) {
+      end = mid - 1;
+    } else if(dictionary[mid] < word) {
+      start = mid + 1;
+    } else {
+      console.log(mid);
+      return true;
+    }
+  }
+  console.log('not found');
+  return false;
+}
+
+findWord(dictionary, 'albatross');
+
+
+
+
+
+
+Programming 2:
+
+let fishes = ['other', 'other','other','other', 'whiteSpotted', 'other','other'];
+
+function searchFish(fishes, desiredFish) {
+  for(let i = 0; i < fishes.length; i++) {
+    if(fishes[i] === desiredFish) {
+      return i;
+    }
+  }
+  return 'not found';
+}
+
+searchFish(fishes, 'whiteSpotted');
+
+
+
+
+
+
+
+
+
