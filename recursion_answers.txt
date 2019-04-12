@@ -15,7 +15,14 @@ e. Recursion is used a lot in fractals. An example is Sierpinskis triangle.
 As said earlier, most problems can be solved in both ways. Whenever efficiency is critical, one should prefer iterations. Recursion tends to be less efficient. However, sometimes implementing recursion is more straightforward when the problem itself is of a recursive manner. This is the case for example for so called self-similar shapes. 
 
 4.
-I don't understand the question. Should I individually compare the two solutions for each algorithm? So for each algorithm I describe what is similar and different between the recusive and iterative solution? 
+Factorial
+Both solution have an if/else statement but the recursive solution requires an additional else if. They are pretty much the ame in terms of length. Difference is also that there is a running result in the iterative version.
+
+Maximum procedure
+The recursive solution is much longer and requires a nested if-statement. The process is comparable in a sense that it keeps track of the current maximum while going through the numbers.
+
+Fibonacci
+They are almost the same in terms of their length of their code, but the iterative version is easier to follow compared with the recursive one that calls iself twice in the fuction. 
 
 5.
 This functions returns the number of items in the array. In my result, it returns 5.
