@@ -1,0 +1,45 @@
+1.
+
+let arrayToSort = [8, 4, 2, 11, 15, 5, 7, 9, 6, 1, 12];
+
+function bubbleSort(arr) {
+  let sorting = true;
+  while(sorting) {
+    sorting = false;
+    for(let i = 0; i < arr.length-1; i++) {
+      if(arr[i] > arr[i+1]) {
+        let temp = arr[i];
+        arr[i] = arr[i+1];
+        arr[i+1] = temp;
+        sorting = true; 
+      }   
+    }
+  }
+}
+
+console.log(arrayToSort);
+bubbleSort(arrayToSort);
+console.log(arrayToSort);
+
+
+2.
+FUNCTION quickSort(collection, start, end)
+  SET pivot to end of collection
+  FOR EACH item in collection
+    COMPARE item to pivot
+    IF item > pivot
+      MOVE item to right of pivot
+      SHIFT index of pivot item to left
+    END IF
+    CALL quickSort(collection, start, pivot-1)
+    CALL quickSort(collection, pivot+1, end)
+  END FOR
+END FUNCTION
+
+
+3.
+Insertion, selection and bubble sort all have nested loops. This is already not good for efficiency. Also, they go through the collections from left to right. One item at the time is looked at and maybe moved to another position. They go over the collection again and again. The other two use recursion. Collections are partitioned and sorted and therefore they need less time to sort. 
+
+4.
+The bucket sort creates empty buckets as a first step. Then, it takes the values from the input and sorts them into their respective bucket. Then, all the buckets are sorted individually. After that, the values are put back in correct order into the array. 
+The input is ideal if I know the range of it. If I want to sort an array of numbers, but I don't know what the highest number might be, how would I know what buckets I need? Hence, only if it is clear what bucket sizes might make sense, the bucket sort should be used.
