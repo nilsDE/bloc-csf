@@ -1,0 +1,83 @@
+1.
+They use the different methods LIFO and FIFO. Stacks arrange elements in LIFO (last in first out) priority and queues arrange in FIFO priority (first in first out).
+
+2.
+They are both ways to create waiting lines, to create on order of operations. 
+
+3.
+Undoing something is a LIFO operation. The last typed character needs to be undone. Hence, I use a stack. If I type B, l, o, c, I redo the last one that came in first.
+
+Same for the redo. If I keep track of what I undid, let's say 'c' and then 'o', I want to get them back in a LIFO way as well. 'o' and then 'c'.
+
+Programming 1.
+function reverseWord(word) {
+  let stack = [];
+  let result = '';
+  for(let i = 0; i < word.length; i++) {
+    stack.push(word[i]);
+  }
+  for(let i = 0; i < word.length; i++) {
+    let temp = stack.pop();
+    result = result.concat(temp);
+  }
+  console.log(result);
+}
+
+reverseWord('Bloc!');
+
+
+Programming 2.
+I am not sure if I understood the objective right. 
+I used the example of 1. and changed it in a way that it still does the same, but items are dequeued from index 0.
+
+function reverseWord(word) {
+  let queue = [];
+  let result = '';
+  for(let i = word.length - 1; i >= 0; i--) {
+    queue.push(word[i]);
+  }
+
+  while(queue.length !== 0) {
+    let temp = (dequeue(queue, result));
+    result = result.concat(temp);
+  }
+  console.log(result);
+}
+
+ function dequeue(input) {
+  let temp = input[0];
+  input.splice(0,1);
+  return temp;
+}
+
+reverseWord('Bloc!');
+
+
+3.
+class Queue {
+  constructor() {
+    this.myQueue = [];
+  }
+  enqueue(element) {
+    this.myQueue.push(element);
+    console.log(`${element} appended to the queue`);
+  }
+  dequeue() {
+    let temp = this.myQueue[0];
+    this.myQueue.splice(0, 1);
+    console.log(`You dequeued ${temp}`);
+  }
+  show() {
+    console.log(this.myQueue);
+  }
+}
+
+let myFirstQueue = new Queue();
+
+myFirstQueue.enqueue('test1');
+myFirstQueue.enqueue('test2');
+myFirstQueue.enqueue('test3');
+myFirstQueue.show();
+myFirstQueue.dequeue();
+myFirstQueue.show();
+
