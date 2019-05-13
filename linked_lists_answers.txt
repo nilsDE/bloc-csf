@@ -1,0 +1,114 @@
+1.
+Linked lists have the advantage that insertions and deletions are very efficient. Also, they don't waste any memory. The reason is that compared to an array a linked list doesn't occupy consecutive memory space. For the same reason, there is no random access, because linked lists do not have eccifient indexing as arrays. Also, sequential access is slow because elements are not in contiguous memory locations. 
+
+2.
+A good example in the real world would be the browser history. I can go back and forth from any page because it always has a reference to the page before. Using only the little arrow buttons it only allows us to move step by step through the sites without skipping them. 
+
+Programming Questions
+
+1.
+The pseudocode looks ok except for the ELSE part of the if-statement. First, the if statement tests whether there are no items in the list yet. If that is not the case, the else statement is excecuted. What then needs to happen is that we find the end of the linked list. We need a loop that follows the 'next' until we find the last one that is not null. 
+
+Implementation like this (this also already contains the functions for the other two questions!):
+
+
+class Node {
+  constructor(element) {
+    this.element = element;
+    this.next = null;
+  }
+}
+
+class LinkedList {
+  constructor() {
+    this.head = null;
+    this.size = 0;
+  }
+
+  push(element) { 
+    let node = new Node(element);
+    let current;
+    if (this.head == null)
+      this.head = node;
+    else {
+      current = this.head;
+      while (current.next) {
+        current = current.next;
+      }
+      current.next = node;
+    }
+    this.size++;
+  }
+
+  removeDuplicates() {
+    if(!this.head || !this.head.next) {
+      return;
+    }
+
+    let p1;
+    let p2;
+    let nodes = {};
+
+    p1 = this.head;
+    p2 = p1.next;
+    nodes[p1.element] = true;
+
+    while (p2) {
+        let element = p2.element;
+        if (nodes[element]) {
+            p1.next = p2.next;
+        } else {
+            nodes[element] = true;
+            p1 = p2;
+        }
+        p2 = p2.next;
+    }
+  }
+
+  reverse() {
+    let curr = this.head;
+    let next = null;
+    let prev = null;
+    
+    while(curr) {
+      next = curr.next;
+      curr.next = prev;
+      prev = curr;
+      curr = next;
+    }
+    this.head = prev;
+  }
+
+
+  printList() {
+    let curr = this.head;
+    let str = "";
+    while (curr) {
+      str += curr.element + " ";
+      curr = curr.next;
+    }
+    console.log(str);
+  }
+}
+
+
+let ll = new LinkedList();
+ll.push('a');
+ll.push('c');
+ll.push('d');
+ll.push('d');
+ll.push('a');
+ll.printList();
+ll.removeDuplicates();
+ll.printList();
+ll.reverse();
+ll.printList();
+
+
+
+
+2. For the code see above. The strategy is to iterate over all the nodes once. Each new value is saved. Each value is compared against the already seen values. If it is already in the saved list we can take out the node. 
+
+3. For this one, the strategy is to change all the next pointers to the previous nodes. 
+
+
