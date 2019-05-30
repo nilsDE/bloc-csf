@@ -1,0 +1,172 @@
+1.
+It is another kind of data structure. Just like an array, it stores key-value pairs. Keys are unique in a hash table. Keys are converted into hash codes and hash codes are modded to get an array index. Because in the end, the data is stored in an array.
+
+2.
+Hashing is the step when the key is converted into a hash code using a hashing function. This is because the key can be any data type. So we want to convert into a numerical index. This is what hashing does.
+
+3.
+The hash table stores the data in an array. The index in the array is determined by the hash code. Since the hash code is a too long number, it is modded with its capacity.
+
+4.
+Both of them store key-value pairs but different than hash tables, objects hold potentially different types of data. In that sense, hash tables are more like arrays, storing collections of similar data. Keys of objects are strings or symbols, keys for hash tables can be any data type.
+
+5.
+a. This could be a hash table. The data consists of consistently formatted values.
+b. This should be an object. It is just one collection of different data (string, number, ...). 
+c. A hash table holding only strings as values.
+d. A hash table that has only strings.
+e. A hash table with phone numbers which are consistently formatted values.
+
+
+
+Programming questions
+
+1.
+
+const hash = (key, size) => {
+  let hashedKey = 0;
+
+  for (let i = 0; i < key.length; i++) {
+    hashedKey = key.charCodeAt(i);
+  }
+  return hashedKey % size;
+};
+
+class HashTable {
+  constructor() {
+    this.size = 20;
+    this.buckets = Array(this.size);
+
+    for (let i = 0; i < this.buckets.length; i++) {
+      this.buckets[i] = new Map();
+    }
+  }
+
+  insert(key, value) {
+    let idx = hash(key, this.size);
+    this.buckets[idx].set(key, value);
+  }
+
+  remove(key) {
+    let idx = hash(key, this.size);
+    let deleted = this.buckets[idx].get(key);
+    this.buckets[idx].delete(key);
+    return deleted;
+  }
+
+  search(key) {
+    let idx = hash(key, this.size);
+    return this.buckets[idx].get(key);
+  }
+}
+
+let hashTable = new HashTable();
+hashTable.insert('123-999-456', {name: 'Peter', address: 'New Street 12'});
+hashTable.insert('333-999-123', {name: 'Jessica', address: 'Old Street 2'});
+hashTable.insert('999-555-444', {name: 'Karl', address: 'Main Street 87'});
+console.log(hashTable);
+console.log(hashTable.search('333-999-123'));
+
+
+
+
+
+
+2.
+
+const hash = (key, size) => {
+  let hashedKey = 0;
+
+  for (let i = 0; i < key.length; i++) {
+    hashedKey = key.charCodeAt(i);
+  }
+  return hashedKey % size;
+};
+
+class HashTable {
+  constructor() {
+    this.size = 20;
+    this.buckets = Array(this.size);
+
+    for (let i = 0; i < this.buckets.length; i++) {
+      this.buckets[i] = new Map();
+    }
+  }
+
+  insert(key, value) {
+    let idx = hash(key, this.size);
+    this.buckets[idx].set(key, value);
+  }
+
+  remove(key) {
+    let idx = hash(key, this.size);
+    let deleted = this.buckets[idx].get(key);
+    this.buckets[idx].delete(key);
+    return deleted;
+  }
+
+  search(key) {
+    let idx = hash(key, this.size);
+    return this.buckets[idx].get(key);
+  }
+}
+
+let hashTable = new HashTable();
+hashTable.insert('bananas', 10);
+hashTable.insert('apples', 20);
+hashTable.insert('pears', 40);
+hashTable.insert('beer', 1000);
+console.log(hashTable);
+console.log(hashTable.search('apples'));
+
+
+
+
+3.
+const hash = (key, size) => {
+  let hashedKey = 0;
+
+  for (let i = 0; i < key.length; i++) {
+    hashedKey = key.charCodeAt(i);
+  }
+  return hashedKey % size;
+};
+
+class HashTable {
+  constructor() {
+    this.size = 20;
+    this.buckets = Array(this.size);
+
+    for (let i = 0; i < this.buckets.length; i++) {
+      this.buckets[i] = new Map();
+    }
+  }
+
+  insert(key, value) {
+    let idx = hash(key, this.size);
+    this.buckets[idx].set(key, value);
+  }
+
+  remove(key) {
+    let idx = hash(key, this.size);
+    let deleted = this.buckets[idx].get(key);
+    this.buckets[idx].delete(key);
+    return deleted;
+  }
+
+  search(key) {
+    let idx = hash(key, this.size);
+    return this.buckets[idx].get(key);
+  }
+}
+
+
+let hashTable = new HashTable();
+hashTable.insert('Bloc Times 5/2018', {headline: 'CSS rocks', text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'});
+hashTable.insert('Bloc Times 4/2018', {headline: 'Angular or React', text: 'Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo reprehenderit optio amet ab temporibus asperiores quasi cupiditate.'});
+hashTable.insert('Bloc Times 3/2018', {headline: 'bloc is awesome', text: 'Voluptatum ducimus voluptates voluptas?'});
+console.log(hashTable);
+console.log(hashTable.search('Bloc Times 4/2018'));
+
+
+
