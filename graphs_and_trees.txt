@@ -11,11 +11,11 @@ A: Heuristic comes into play when it is for example not possible to assess each 
 
 3. What is another problem besides the shortest-path problem that requires the use of heuristics?
 
-A: There is for example the approach to solve a simpler problem whose solution is also a solution to the initial problem. This is just calles 'simpler problem'. 
+A: I think every rule of thumb we use in everyday life is a heuristic. If we judge a situation based on prior experience or example. We might decide that an old lady with a poodle is trustworthy based on our memory of our grandma that had a poodle too even though we can not directly assess and measure the trustworthiness of this person. We apply our experience assuming that similar people most likely have the same characteristics. 
 
 4. What is the difference between a depth-first search and a breadth-first search?
 
-A: The difference is the order in which the nodes are searched. Depth-first seach will finish a complete node and than go back to visit unvisited nodes if it didn't find the desired Node. A breadth-first search will complete one row of the search tree after the other. 
+A: The difference is the order in which the nodes are searched. Depth-first starts with the root node and traverses the tree. It explores as far as possible along each branch. So if we start at the root and choose left edges over right edges, the search will move down the left branches until it reaches the last one, then go back the last parent node where it can go for a right edge, and so on. A breadth-first search will complete one row of the search tree after the other. 
 
 5. Explain in your own words what an undirected, a-cyclic, unweighted graph is.
 
@@ -44,13 +44,13 @@ class Node {
   }
   addNode(n) {
     if (n.value < this.value) {
-      if (this.left == null) {
+      if (this.left === null) {
         this.left = n;
       } else {
         this.left.addNode(n);
       }
     } else if (n.value > this.value) {
-      if (this.right == null) {
+      if (this.right === null) {
         this.right = n;
       } else {
         this.right.addNode(n);
@@ -58,11 +58,11 @@ class Node {
     }
   }
   search(val) {
-    if (this.value == val) {
+    if (this.value === val) {
       return this;
-    } else if (val < this.value && this.left != null) {
+    } else if (val < this.value && this.left !== null) {
       return this.left.search(val);
-    } else if (val > this.value && this.right != null) {
+    } else if (val > this.value && this.right !== null) {
       return this.right.search(val);
     }
     return null;
@@ -76,7 +76,7 @@ class Tree {
   }
   addValue(val) {
     const n = new Node(val);
-    if (this.root == null) {
+    if (this.root === null) {
       this.root = n;
     } else {
       this.root.addNode(n);
@@ -87,7 +87,7 @@ class Tree {
     console.log(found);
   }
   findDistance(root, val1, val2) {
-    if (root == null) {
+    if (root === null) {
       return 0;
     }
     if (root.value > val1 && root.value > val2) {
@@ -99,7 +99,7 @@ class Tree {
     }
   }
   distanceFromRoot(root, x) {
-    if (root.value == x) {
+    if (root.value === x) {
       return 0;
     } else if (root.value > x) {
       return 1 + this.distanceFromRoot(root.left, x);
