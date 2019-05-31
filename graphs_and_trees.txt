@@ -1,0 +1,130 @@
+Questions
+
+1. What is a binary tree and what makes it unique to other trees?
+
+A: A binary tree is a specific kind of tree. A node in a binary tree may have up to two child Nodes - but not more. 
+
+2. What is a heuristic?
+
+A: Heuristic comes into play when it is for example not possible to assess each possible solution to find the perfect one. This might be because there are simply to many options to check. It would take forever and take too much computing power. To make it more simple heuristics are used which are basically guesses that help to come close to the best result, i.e. find the best result in a high percentage amount of cases.  
+
+
+3. What is another problem besides the shortest-path problem that requires the use of heuristics?
+
+A: There is for example the approach to solve a simpler problem whose solution is also a solution to the initial problem. This is just calles 'simpler problem'. 
+
+4. What is the difference between a depth-first search and a breadth-first search?
+
+A: The difference is the order in which the nodes are searched. Depth-first seach will finish a complete node and than go back to visit unvisited nodes if it didn't find the desired Node. A breadth-first search will complete one row of the search tree after the other. 
+
+5. Explain in your own words what an undirected, a-cyclic, unweighted graph is.
+
+A: 
+Undirected: It means that there is no clear start and end point in a connection between nodes as either node could be either the start or the end point. 
+A-cyclic: In an a-cyclic graph it is not possible to make a loop. So if A points to B, and B to C, there is no way that C points back to A. 
+Unweighted: It basically means that the cost of travel from getting from one Node to the other is not assigned in the graph. 
+
+6. What kind of graph is a binary search tree?
+
+A: A binary seach tree is a directed, a-cyclic and unweighted graph.
+
+
+Programming questions
+
+A: For the first I will implement a depth-first search. I will create Node and Tree classes to set up the tree itself and give the necessary functions to it. Search will then be found with DFS. For the distance, i will find the nearest common parent node of both and calculate the distance to that one and add these numbers together. The findDistance() function requires the root and the smaller number and the larger number in that order as paramenters. 
+
+Both excercises are solved with the following code: 
+
+
+class Node {
+  constructor(val) {
+    this.value = val;
+    this.left = null;
+    this.right = null;
+  }
+  addNode(n) {
+    if (n.value < this.value) {
+      if (this.left == null) {
+        this.left = n;
+      } else {
+        this.left.addNode(n);
+      }
+    } else if (n.value > this.value) {
+      if (this.right == null) {
+        this.right = n;
+      } else {
+        this.right.addNode(n);
+      }
+    }
+  }
+  search(val) {
+    if (this.value == val) {
+      return this;
+    } else if (val < this.value && this.left != null) {
+      return this.left.search(val);
+    } else if (val > this.value && this.right != null) {
+      return this.right.search(val);
+    }
+    return null;
+  }
+}
+
+class Tree {
+  constructor() {
+    this.root = null;
+    this.completeTree = [];
+  }
+  addValue(val) {
+    const n = new Node(val);
+    if (this.root == null) {
+      this.root = n;
+    } else {
+      this.root.addNode(n);
+    }
+  }
+  searchTree(val) {
+    let found = this.root.search(val);
+    console.log(found);
+  }
+  findDistance(root, val1, val2) {
+    if (root == null) {
+      return 0;
+    }
+    if (root.value > val1 && root.value > val2) {
+      return this.findDistance(root.left, val1, val2);
+    } else if (root.value < val1 && root.value < val2) {
+      return this.findDistance(root.right, val1, val2);
+    } else if (root.value >= val1 && root.value <= val2) {
+      return this.distanceFromRoot(root, val1) + this.distanceFromRoot(root, val2);
+    }
+  }
+  distanceFromRoot(root, x) {
+    if (root.value == x) {
+      return 0;
+    } else if (root.value > x) {
+      return 1 + this.distanceFromRoot(root.left, x);
+    } else {
+      return 1 + this.distanceFromRoot(root.right, x);
+    }
+  }
+}
+
+const tree = new Tree();
+tree.addValue(8);
+tree.addValue(3);
+tree.addValue(10);
+tree.addValue(1);
+tree.addValue(6);
+tree.addValue(14);
+tree.addValue(4);
+tree.addValue(7);
+tree.addValue(13);
+
+console.log(tree);
+
+tree.searchTree(10);
+tree.searchTree(23);
+
+console.log(tree.findDistance(tree.root, 4, 10));
+console.log(tree.findDistance(tree.root, 8, 10));
+console.log(tree.findDistance(tree.root, 1, 14));
